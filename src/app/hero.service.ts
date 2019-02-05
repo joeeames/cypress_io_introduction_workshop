@@ -58,10 +58,14 @@ export class HeroService {
       // if not search term, return empty hero array.
       return of([]);
     }
-    return this.http.get<Hero[]>(`${this.heroesUrl}/?name=${term}`).pipe(
+    return this.getHeroes().pipe(
+      map(heroes => {
+        return heroes.filter(h => h.name.toLocaleLowerCase().indexOf(term.toLocaleLowerCase()) >= 0);
+      }),
       tap(_ => this.log(`found heroes matching "${term}"`)),
       catchError(this.handleError<Hero[]>('searchHeroes', []))
-    );
+    )
+    
   }
 
   //////// Save methods //////////
