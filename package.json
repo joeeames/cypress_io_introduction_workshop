@@ -37,6 +37,7 @@
     "@angular/cli": "^7.0.0",
     "@angular/compiler-cli": "^7.0.0",
     "@angular/platform-server": "^7.0.0",
+    "@bahmutov/add-typescript-to-cypress": "^2.0.0",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "^2.0.4",
     "@types/node": "~8.9.4",
