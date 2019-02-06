@@ -10,6 +10,7 @@ describe('Heroes Page', () => {
       url: '/api/heroes',
       response: { "id": 21, "name": "Superbob" }
     })
+
   })
 
   it(`has the right header`, () => {
