@@ -12,3 +12,8 @@ Then install with
 ``` 
 npm install
 ```
+
+Also install json-server globally with
+```
+npm install -g json-server
+```
