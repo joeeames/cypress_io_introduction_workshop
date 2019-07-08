@@ -1,0 +1,19 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2.1
+orbs:
+  cypress: cypress-io/cypress@1.5.1
+jobs:
+  build:
+    jobs:
+      - cypress/install:
+        build: 'npm run server'
+      - cypress/run:
+        requires:
+          - cypress/install
+        record: true
+        group: 'all tests'
+        start: 'npm start'
+        
