@@ -1,8 +1,3 @@
-/// <reference types="Cypress" />
-
-
-
-
 describe('Initial page', () => {
 
   beforeEach(() => {
