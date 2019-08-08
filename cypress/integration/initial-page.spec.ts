@@ -53,4 +53,13 @@ describe('dashboard', () => {
     cy.get('app-hero-search h4').should('contain', 'Hero Search');
   })
   
+  it(`can search`, () => {
+    cy.get('#search-box').type('na');
+    cy.get('.search-result li').should('have.length', 3);
+    cy.get('#search-box').type('{backspace}');
+    cy.get('.search-result li').should('have.length', 6)
+      .first().contains('Narco');
+    cy.get('.search-result li').contains('Mr. Nice').click();
+    cy.url().should('include', 'detail/11');
+  })
 })
