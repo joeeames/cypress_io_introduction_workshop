@@ -7,7 +7,7 @@ describe('Hero details', () => {
       method: "PUT",
       url: '/api/heroes/11',
       response: { id: 11, name: 'Spider Pig' }
-    });
+    }).as('hero11update');
 
     cy.get('input').should('have.value', 'Mr. Nice');
 
@@ -18,5 +18,6 @@ describe('Hero details', () => {
     cy.get('input').clear().type('Spider Pig');
     cy.get('h2').first().should('contain', 'SPIDER PIG');
     cy.contains('save').click();
+    cy.wait('@hero11update');
   })
 })
