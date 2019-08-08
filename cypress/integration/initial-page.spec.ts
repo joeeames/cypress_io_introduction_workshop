@@ -38,7 +38,10 @@ describe('dashboard', () => {
     cy.title().should('eq', 'Tour of Heroes');
     // cy.contains('Tour of Heroee');
     cy.contains('Dashboard');
-    cy.get('nav a').eq(1).should('contain', 'Heroes');
+    cy.get('nav a').as('Dashboardlinks');
+    cy.get('@Dashboardlinks').eq(1).should('contain', 'Heroes');
+    cy.get('@Dashboardlinks').eq(0).should('contain', 'Dashboard');
+    
     cy.contains('Top Heroes');
     cy.contains('Hero Search');
     cy.get('app-hero-search h4').should('contain', 'Hero Search');
