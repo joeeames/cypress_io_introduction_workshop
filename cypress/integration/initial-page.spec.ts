@@ -3,7 +3,7 @@
 describe('dashboard', () => {
   
   beforeEach(() => {
-    cy.visit("localhost:4200/dashboard");
+    cy.visit("/dashboard");
     
   })
   
@@ -34,9 +34,10 @@ describe('dashboard', () => {
   })
   
   it(`has correct basic info`, () => {
-    cy.get('h1').should('contain', 'Tour of Heroes');
-    cy.title().should('eq', 'Tour of Heroes');
+    cy.get('h1').should('contain', Cypress.env('defaultTitle'));
+    cy.title().should('eq', Cypress.env('defaultTitle'));
     // cy.contains('Tour of Heroee');
+    
     cy.contains('Dashboard');
     cy.get('nav a').as('Dashboardlinks');
     // cy.get('@Dashboardlinks').eq(1).should('contain', 'Heroes');
