@@ -39,8 +39,13 @@ describe('dashboard', () => {
     // cy.contains('Tour of Heroee');
     cy.contains('Dashboard');
     cy.get('nav a').as('Dashboardlinks');
-    cy.get('@Dashboardlinks').eq(1).should('contain', 'Heroes');
-    cy.get('@Dashboardlinks').eq(0).should('contain', 'Dashboard');
+    // cy.get('@Dashboardlinks').eq(1).should('contain', 'Heroes');
+    // cy.get('@Dashboardlinks').eq(0).should('contain', 'Dashboard');
+    cy.get('@Dashboardlinks').last().should('contain', 'Heroes');
+    cy.get('@Dashboardlinks').first().should('contain', 'Dashboard');
+    
+    cy.get('@Dashboardlinks').first().contains('Dashboard')
+      .parent().get('a').last().contains('Heroes');
     
     cy.contains('Top Heroes');
     cy.contains('Hero Search');
