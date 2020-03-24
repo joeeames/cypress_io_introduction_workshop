@@ -30,7 +30,7 @@ describe('hero Details Page', () => {
   it(`can update a Hero's Name`, () => {
     cy.get('input').clear().type('Mr. Mean');
     cy.contains('save').click();
-    cy.visit('dashboard') // save calls .location.back() which doesn't fit our scenario
+    cy.visit('dashboard')
     cy.get('input').type('Mean').get('.search-result li').should('have.length', 1);
   })
 
