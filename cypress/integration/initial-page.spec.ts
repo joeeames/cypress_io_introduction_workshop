@@ -21,7 +21,7 @@ describe('Initial page', () => {
       .and('have.css', 'color', 'rgb(153, 153, 153)' )
   });
 
-  it(`has the title of 'my heroes'`, () => {
+  it(`has the title of 'top heroes'`, () => {
     cy.visitAndSeed();
     cy.get('h3').contains('Top Heroes');
   })
@@ -46,7 +46,6 @@ describe('Initial page', () => {
     // cy.get('@views').last().contains('Heroes');
 
     // method 3
-    // put the following 2 into the beforeEach()
     cy.get('@dashboardlink').contains('Dashboard');
     cy.get('@heroeslink').contains('Heroes');
 
