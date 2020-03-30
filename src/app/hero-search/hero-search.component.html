@@ -1,10 +1,10 @@
 <div id="search-component">
   <h4>Hero Search</h4>
 
-  <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+  <input #searchBox id="search-box" (input)="search(searchBox.value)" autocomplete="off" />
 
   <ul class="search-result">
-    <li *ngFor="let hero of heroes$ | async" >
+    <li *ngFor="let hero of searchResult" >
       <a routerLink="/detail/{{hero.id}}">
         {{hero.name}}
       </a>
