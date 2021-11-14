@@ -1,13 +1,12 @@
 describe('Heroes Page', () => {
 
   beforeEach(() => {
-    cy.server();
     cy.setupServerResponses();
-    cy.route({
-      method: "POST",
-      url: '/api/heroes',
-      response: { "id": 21, "name": "Superbob" }
-    })
+    cy.intercept({
+            method: "POST",
+            url: '/api/heroes',
+        },
+        { "id": 21, "name": "Superbob" })
 
   })
 

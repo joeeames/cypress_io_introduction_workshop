@@ -1,16 +1,15 @@
 describe('hero Details Page', () => {
 
   beforeEach(() => {
-    cy.server();
-    cy.route({
+    cy.intercept({
       method: "PUT",
-      url: '/api/heroes/11',
-      response: { "id": 11, "name": "Mr. Mean" }
-    })
-    cy.route({
+      url: '/api/heroes/11'},
+      { "id": 11, "name": "Mr. Mean" }
+    )
+    cy.intercept({
       method: "GET",
-      url: '/api/heroes',
-      response: [
+      url: '/api/heroes'},
+      [
         { id: 11, name: 'Mr. Mean' },
         { id: 12, name: 'Narco' },
         { id: 13, name: 'Bombasto' },
@@ -22,7 +21,7 @@ describe('hero Details Page', () => {
         { id: 19, name: 'Magma' },
         { id: 20, name: 'Tornado' }
       ]
-    })
+    )
     cy.visit('detail/11');
   })
 

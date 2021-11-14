@@ -1,6 +1,7 @@
 describe('Initial page', () => {
 
   beforeEach(() => {
+    // cy.visit('dashboard')
     
 
   })
@@ -37,13 +38,13 @@ describe('Initial page', () => {
     cy.get('nav a').last().as('heroeslink')
 
     // method 1
-    // cy.get('nav a').first().contains('Dashboard').parent()
-    //   .get('a').last().contains('Heroes');
+    cy.get('nav a').first().contains('Dashboard').parent()
+      .get('a').last().contains('Heroes');
 
     // method 2
-    // cy.get('nav a').as('views');
-    // cy.get('@views').first().contains('Dashboard');
-    // cy.get('@views').last().contains('Heroes');
+    cy.get('nav a').as('views');
+    cy.get('@views').first().contains('Dashboard');
+    cy.get('@views').last().contains('Heroes');
 
     // method 3
     cy.get('@dashboardlink').contains('Dashboard');
@@ -60,8 +61,9 @@ describe('Initial page', () => {
     })
 
     // fails until bug in system is fixed
-    xit(`shows 1 card when there's just 1 hero`, () => {
+    it(`shows 1 card when there's just 1 hero`, () => {
       cy.visitAndSeed({ heroes: [{id: 1, name: 'Spiderpig'}] })
+      // cy.visitAndSeed({path: 'dashboard', heroes: [{id: 1, name: 'Spiderpig'}]})
       cy.get('app-dashboard a').should('have.length', 1);
 
     })
