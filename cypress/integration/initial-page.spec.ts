@@ -92,6 +92,25 @@ describe('Initial page', () => {
     })
   })
 
+  // a test for when wait is implemented
+  // it(`finds the right hero`, () => {
+  //   cy.visit('dashboard');
+  //   cy.get('input').type('bo')
+  //   cy.get('ul li').should('have.length', 1);
+  // })
+
+  // test solution
+  // it(`finds the right hero`, () => {
+  //   cy.intercept('/api/heroes').as('heroes')
+  //   cy.visit('dashboard');
+  //   cy.get('div.module'); // TRY THIS FIRST. CLUNKY SOLUTION.
+  //   cy.wait('@heroes')
+  //   cy.wait('@heroes')
+  //   cy.get('input').type('bo')
+  //   cy.get('ul li').should('have.length', 1);
+  // })
+
+
 
 
 
